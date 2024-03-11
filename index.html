@@ -16,7 +16,11 @@
 <script>
 // Функция для преобразования десятичного числа в шестнадцатиричное
 function decToHex(n) {
-    return n.toString(16).toUpperCase();
+    hexString = n.toString(16);
+    if (hexString.length % 2) {
+    hexString = '0' + hexString;
+}
+    return hexString;
 }
 
 // Функция для преобразования шестнадцатиричного числа в десятичное

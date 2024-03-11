@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Преобразование числа</h2>
+
+<p>Введите число:</p>
+<input id="inputNumber" type="text">
+
+<button onclick="convertNumber()">Преобразовать</button>
+
+<p id="result"></p>
+
+<script>
+// Функция для преобразования десятичного числа в шестнадцатиричное
+function decToHex(n) {
+    return n.toString(16).toUpperCase();
+}
+
+// Функция для преобразования шестнадцатиричного числа в десятичное
+function hexToDec(hexString) {
+    return parseInt(hexString, 16);
+}
+
+function convertNumber() {
+    // Получение числа из поля ввода
+    let n = document.getElementById("inputNumber").value;
+
+    // Преобразование числа из десятичной системы в шестнадцатиричную
+    let hexN = decToHex(n);
+
+    // Отбрасывание первой буквы из полученного шестнадцатиричного числа
+    hexN = hexN.substring(1);
+
+    // Преобразование оставшегося числа обратно в десятичную систему
+    let decN = hexToDec(hexN);
+
+    // Вывод результата на страницу
+    document.getElementById("result").innerHTML = `Десятичное представление числа ${hexN} - ${decN}`;
+}
+</script>
+
+</body>
+</html>

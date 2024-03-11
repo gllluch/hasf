@@ -16,7 +16,7 @@
 <script>
 // Функция для преобразования десятичного числа в шестнадцатиричное
 function decToHex(n) {
-    hexString = n.toString(16);
+    let hexString = n.toString(16).toUpperCase();
     if (hexString.length % 2) {
     hexString = '0' + hexString;
 }
@@ -30,11 +30,11 @@ function hexToDec(hexString) {
 
 function convertNumber() {
     // Получение числа из поля ввода
-    let n = document.getElementById("inputNumber").value;
-
+    let inputNumber = parseInt(document.getElementById("inputNumber").value);
+console.log(inputNumber);
     // Преобразование числа из десятичной системы в шестнадцатиричную
-    let hexN = decToHex(n);
-    document.getElementById("step1").innerHTML = `Шестнадцатиричное представление числа ${n} - ${hexN}`;
+    let hexN = decToHex(inputNumber);
+    document.getElementById("step1").innerHTML = `Шестнадцатиричное представление числа ${inputNumber} - ${hexN}`;
 
     // Отбрасывание первой буквы из полученного шестнадцатиричного числа
     hexN = hexN.substring(1);

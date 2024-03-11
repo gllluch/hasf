@@ -9,6 +9,8 @@
 
 <button onclick="convertNumber()">Преобразовать</button>
 
+<p id="step1"></p>
+<p id="step2"></p>
 <p id="result"></p>
 
 <script>
@@ -28,14 +30,14 @@ function convertNumber() {
 
     // Преобразование числа из десятичной системы в шестнадцатиричную
     let hexN = decToHex(n);
+    document.getElementById("step1").innerHTML = `Шестнадцатиричное представление числа ${n} - ${hexN}`;
 
     // Отбрасывание первой буквы из полученного шестнадцатиричного числа
     hexN = hexN.substring(1);
+    document.getElementById("step2").innerHTML = `Шестнадцатиричное число после отбрасывания первой буквы - ${hexN}`;
 
     // Преобразование оставшегося числа обратно в десятичную систему
     let decN = hexToDec(hexN);
-
-    // Вывод результата на страницу
     document.getElementById("result").innerHTML = `Десятичное представление числа ${hexN} - ${decN}`;
 }
 </script>
